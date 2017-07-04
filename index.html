@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            html, body {
+                background-color:lavenderblush;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="myCanvas"></canvas>
+        <script type="text/javascript">
+            // Store the 2D rendering context
+            let canvas = document.getElementById("myCanvas");
+            canvas.width = 1000;
+            canvas.height = 500;
+            // Store the 2D rendering context
+            let ctx = canvas.getContext("2d");
+
+            let circleCount = 5; 
+
+            function drawCircle (x,y,r) {
+            ctx.beginPath();
+            ctx.arc(x,y,r,0,2*Math.PI);
+            ctx.fillStyle="#FF0000";
+            if (x > 100 && x < 200) {
+                    ctx.fillStyle = "#7df442"
+            }
+            if (x > 200 && x < 300) {
+                    ctx.fillStyle = "#2a317f"
+            }
+            ctx.fill();
+            }
+            function animate () {
+                for ( i = 0; i <circleCount; i++ ) {
+                    let x = Math.floor(Math.random() * 1000) + 40
+                    let y = Math.floor(Math.random() * 500) + 40
+                    drawCircle(x,y,40);
+                }
+            }
+            setInterval(animate, 50);
+
+            
+        </script>
+    </body>
+</html>
